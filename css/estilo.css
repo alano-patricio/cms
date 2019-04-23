@@ -1,126 +1,57 @@
-@charset "utf-8";
-/* CSS Document */
-
-#centralizar {
-    position: absolute;
-    top: 21px;
-    left: 142px
-}
-#navtop {
-    height: 80px;
-}
-#logo {
-    width: 115px;
-    height: 75px;
-    margin-left: 10px;
-}
-#corrigirMenu{
-    margin-left: 30px;
+.centralizarTextoLogo{
+    margin-top: 4%;
 }
 
-#textoCollapse {
-    font-size: 10px;
-}
-#textoCollapse2 {
-    font-size: 10px;
-}
-#editarColuna{
-    width: 20px;
-}
-#editarColuna2{
-    width: 20px;
-}
-#editarColuna3{
-    width: 20px;
-}
+.login-container{
+    margin-top: 13%;
 
-#editaTabelaUser{
-    margin-top: 15%;
 }
-#editaTabelaUser{
-    margin-top: 0%;
+.login-form-1{
+    padding: 5%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
 }
-#testadinha{
-    margin-left: 20%;
+.login-form-1 h3{
+    text-align: center;
+    color: #333;
 }
-
-
-#body-login
-{
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    background: url("../img/login-img.jpg");
-    background-size: cover;
+.login-form-2{
+    padding: 5%;
+    background: #0062cc;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
 }
-
-.box
-{
-    position: absolute;	
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 400px;
-    padding: 40px;
-    background: rgba(0,0,0,.8);
-    box-sizing: border-box;
-    box-shadow: 0 15px 25px rgba(0,0,0,.5);
-    border-radius: 10px;
-}
-.box h2
-{
-    margin: 0 0 30px;
-    padding: 0;
+.login-form-2 h3{
+    text-align: center;
     color: #fff;
-    text-align: center;	
 }
-.box .inputBox
-{
-    position: relative;
+.login-container form{
+    padding: 10%;
 }
-.box .inputBox input
+.btnSubmit
 {
-    width: 100%;
-    padding: 10px 0;
-    font-size: 16px;
-    color: white;
-    margin-bottom: 30px;
+    width: 50%;
+    border-radius: 1rem;
+    padding: 1.5%;
     border: none;
-    border-bottom: 1px solid white;
-    outline: none;
-    background: transparent;
-}
-.box .inputBox label
-{
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 10px;
-    font-size: 16px;
-    color: white;
-    pointer-events: none;
-    transition: .5s;	
-}
-.box .inputBox input:focus ~ label,
-.box .inputBox input:valid ~ label
-{
-    top: -18px;
-    left: 0;
-    color: #03a9f4;
-    font-size: 12px;	
-}
-
-.box input[type="submit"]
-{
-    margin-right: 225px;
-    background: transparent;
-    border: none;
-    outline: none;
-    color: #fff;
-    background: #03a9f4;
-    padding: 10px 30px;
     cursor: pointer;
-    border-radius: 5px;
-    float: right;
-
 }
+.login-form-1 .btnSubmit{
+    font-weight: 600;
+    color: #fff;
+    background-color: #0062cc;
+}
+.login-form-2 .btnSubmit{
+    font-weight: 600;
+    color: #0062cc;
+    background-color: #fff;
+}
+.login-form-2 .ForgetPwd{
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+}
+.login-form-1 .ForgetPwd{
+    color: #0062cc;
+    font-weight: 600;
+    text-decoration: none;
+}
+
