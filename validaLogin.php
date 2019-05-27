@@ -1,33 +1,20 @@
 <?php
 
-if (isset($_SESSION['LOGADO'])) { //verifica se a sessão já não estava aberta e destrói a sessão
+include 'banco/conectaBanco.php';
+
+$buscaUsuario = $pdo->prepare("SELECT * from login where nome = :usuario and senha = :password ");
+$buscaUsuario->bindValue(':usuario', $_POST['usuario'], PDO::PARAM_STR);
+$buscaUsuario->bindValue(':password', $_POST['senha'], PDO::PARAM_STR);
+$buscaUsuario->execute();
+$obtemNivelUsuario = $buscaUsuario->fetch();
+
+echo $obtemNivelUsuario['nivel'];
+
+if ($obtemNivelUsuario) {
     session_start();
-    $_SESSION = array();
-    session_unset();
-    session_destroy();
+    $_SESSION['nivel'] = $obtemNivelUsuario['nivel'];
+    header("location: index.php");
+} else {
+    echo "Usuário Inválido!";
+    header("location: login.php");
 }
-
-$login = $_POST['usuario'];
-$pass = $_POST['senha'];
-
-$sql = "SELECT * FROM login where nome = '$login' and senha = '$pass'";
-
-$statement = $pdo->query($sql);
-$resultadoLogin = $statement->fetch();
-
-$resultadoLogin ? $_SESSION['LOGADO'] = 'verdade' &&  header("location: index.php") : header("location: logoff.php");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

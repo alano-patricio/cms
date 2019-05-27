@@ -1,11 +1,33 @@
 .centralizarTextoLogo{
     margin-top: 4%;
 }
+.previewNoticia{
+    height: 15%;
+    width: 100%;
+}
+
+.espacoEntreDivs{
+    margin: 1%;
+}
+
+.corrigeLateral{
+    margin-left: 1%;
+}
+
+.big-checkbox {width: 25px; height: 25px;}
+
 
 .login-container{
     margin-top: 13%;
 
 }
+#background-image{
+    margin: 0;
+    padding: 0;
+    background-image: url(../img/homeLogin.jpg);
+    background-size: cover;
+}
+
 .login-form-1{
     padding: 5%;
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
