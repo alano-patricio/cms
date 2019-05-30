@@ -1,6 +1,14 @@
-.centralizarTextoLogo{
-    margin-top: 4%;
+#minuaturaNoticia{
+    height: 225px;
 }
+#centralizarTextoLogo{
+    margin-top: 1%;
+}
+
+#centralizarBotaoLogo{
+    margin-top: 7px;
+}
+
 .previewNoticia{
     height: 15%;
     width: 100%;
@@ -16,6 +24,11 @@
 
 .big-checkbox {width: 25px; height: 25px;}
 
+#logo {
+    width: 120px;
+    height: 40px;
+    padding-bottom: 8%;
+}
 
 .login-container{
     margin-top: 13%;

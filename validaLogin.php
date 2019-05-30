@@ -12,6 +12,7 @@ echo $obtemNivelUsuario['nivel'];
 
 if ($obtemNivelUsuario) {
     session_start();
+    $_SESSION['usuario'] = $obtemNivelUsuario['nome_completo'];
     $_SESSION['nivel'] = $obtemNivelUsuario['nivel'];
     header("location: index.php");
 } else {
