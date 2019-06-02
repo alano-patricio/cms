@@ -91,9 +91,13 @@ $statement2->closeCursor();
                     <div class="row">
                         <div class="col-md-12">
                             <div class="panel panel-default">
-                                <div class="panel-body">
-                                    <?php echo $avisoArray->aviso; ?>
-                                </div>
+                                <form action="inserirAviso.php" method="POST">
+                                    <div class="panel-body">
+                                        <?php echo $avisoArray->aviso; ?>
+                                        <input type="hidden" name="idAviso" value="<?php echo $avisoArray->id ?>">
+                                        <button type="submit" class="btn-danger pull-right glyphicon glyphicon-pencil" name="editarAviso"></button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>

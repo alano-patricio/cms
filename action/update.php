@@ -23,4 +23,17 @@ if (isset($_POST['EditarNoticia'])) {
     $editarNoticia->bindValue(':id', $_POST['idDaNoticia'], PDO::PARAM_INT);
     $editarNoticia->execute();
     header('location: ../index.php');
+    //
+} elseif (isset($_POST['editarAviso'])) {
+
+    $editarAviso = $pdo->prepare("UPDATE aviso SET `aviso`=:aviso, `data_cadastro`=:data_cadastro, `data_inicial`=:data_inicial, `data_final`=:data_final, `autor`=:autor where id=:id");
+    $editarAviso->bindValue(':aviso', $_POST['AddTituloAviso'], PDO::PARAM_STR);
+    $editarAviso->bindValue(':data_cadastro', dateEmMysql($_POST['AddDataCadastroAviso']), PDO::PARAM_STR);
+    $editarAviso->bindValue(':data_inicial', dateEmMysql($_POST['AddDataInAviso']), PDO::PARAM_STR);
+    $editarAviso->bindValue(':data_final', dateEmMysql($_POST['AddDataOutAviso']), PDO::PARAM_STR);
+    $editarAviso->bindValue(':autor', $_SESSION['usuario'], PDO::PARAM_STR);
+    $editarAviso->bindValue(':id', $_POST['idDoAviso'], PDO::PARAM_INT);
+    $editarAviso->execute();
+
+    header('location: ../index.php');
 } 

@@ -18,12 +18,11 @@ if (isset($_POST['InserirNoticia'])) {
 
     header('location: ../index.php');
 } elseif (isset($_POST['InserirAviso'])) {
-
-    $inserirNovoAviso = $pdo->prepare("INSERT INTO aviso (`aviso`, `data_cadastro`, `data_inicio`, `data_termino`, `autor`) VALUES (:aviso, :data_cadastro, :data_inicio, :data_termino, :autor)");
+    $inserirNovoAviso = $pdo->prepare("INSERT INTO aviso (`aviso`, `data_cadastro`, `data_inicial`, `data_final`, `autor`) VALUES (:aviso, :data_cadastro, :data_inicial, :data_final, :autor)");
     $inserirNovoAviso->bindValue(':aviso', $_POST['AddTituloAviso'], PDO::PARAM_STR);
     $inserirNovoAviso->bindValue(':data_cadastro', dateEmMysql($_POST['AddDataCadastroAviso']), PDO::PARAM_STR);
-    $inserirNovoAviso->bindValue(':data_inicio', dateEmMysql($_POST['AddDataInAviso']), PDO::PARAM_STR);
-    $inserirNovoAviso->bindValue(':data_termino', dateEmMysql($_POST['AddDataOutAviso']), PDO::PARAM_STR);
+    $inserirNovoAviso->bindValue(':data_inicial', dateEmMysql($_POST['AddDataInAviso']), PDO::PARAM_STR);
+    $inserirNovoAviso->bindValue(':data_final', dateEmMysql($_POST['AddDataOutAviso']), PDO::PARAM_STR);
     $inserirNovoAviso->bindValue(':autor', $_POST['AddAutorAviso'], PDO::PARAM_STR);
     $inserirNovoAviso->execute();
 
