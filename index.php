@@ -4,12 +4,19 @@ include 'banco/conectaBanco.php';
 include 'topo.php';
 include 'funcoes.php';
 
-//Dados da area 01
+//Dados da area 02
 //OFICIAL É ESSE
 //$sql = "SELECT * FROM noticia WHERE NOW() BETWEEN data_inicial AND data_final;";
 $sql = "SELECT * FROM noticia";
-$statement2 = $pdo->query($sql);
-$recebeNoticia = $statement2->fetchAll(PDO::FETCH_OBJ);
+$statement = $pdo->query($sql);
+$recebeNoticia = $statement->fetchAll(PDO::FETCH_OBJ);
+$statement->closeCursor();
+
+//Dados da area 03
+//$sql2 = "SELECT * FROM aviso WHERE NOW() BETWEEN data_inicial AND data_final;";
+$sql2 = "SELECT * FROM aviso";
+$statement2 = $pdo->query($sql2);
+$recebeAviso = $statement2->fetchAll(PDO::FETCH_OBJ);
 $statement2->closeCursor();
 ?>
 
@@ -44,6 +51,7 @@ $statement2->closeCursor();
                                 <?php if (@$_SESSION['nivel'] == 1) { ?>
                                     <form action="inserirNoticia.php" method="POST">
                                         <div class="panel-footer text-center"><?php echo $noticiaArray->titulo ?>
+                                            <input type="hidden" name="idNoticia" value="<?php echo $noticiaArray->id ?>">
                                             <button type="submit" class="btn-danger pull-right glyphicon glyphicon-pencil" name="editarNoticia"></button>
                                         </div>
                                     </form>
@@ -76,16 +84,20 @@ $statement2->closeCursor();
                             <br><br>
                         </div>
                     </div>
-                <?php } ?>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                Teste de escrita e verificando o tamanho da escrita para realizar a quebra de linha.
+                    <?php
+                }
+                foreach ($recebeAviso as $avisoArray):
+                    ?>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <?php echo $avisoArray->aviso; ?>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                <?php endforeach; ?>
             </div>             
 
 
