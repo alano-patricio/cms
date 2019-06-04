@@ -23,7 +23,7 @@ if (isset($_POST['EditarNoticia'])) {
     $editarNoticia->bindValue(':id', $_POST['idDaNoticia'], PDO::PARAM_INT);
     $editarNoticia->execute();
     header('location: ../index.php');
-    //
+//
 } elseif (isset($_POST['editarAviso'])) {
 
     $editarAviso = $pdo->prepare("UPDATE aviso SET `aviso`=:aviso, `data_cadastro`=:data_cadastro, `data_inicial`=:data_inicial, `data_final`=:data_final, `autor`=:autor where id=:id");
@@ -36,4 +36,27 @@ if (isset($_POST['EditarNoticia'])) {
     $editarAviso->execute();
 
     header('location: ../index.php');
-} 
+//
+} elseif (isset($_POST['alteraEmpresa'])) {
+    $editarEmpresa = $pdo->prepare("UPDATE cadastro_cliente SET `nome`=:nome, `telefone`=:telefone, `email`=:email where id=0");
+    $editarEmpresa->bindValue(':nome', $_POST['nomeEmpresa'], PDO::PARAM_STR);
+    $editarEmpresa->bindValue(':telefone', $_POST['telefoneEmpresa'], PDO::PARAM_STR);
+    $editarEmpresa->bindValue(':email', $_POST['emailEmpresa'], PDO::PARAM_STR);
+    $editarEmpresa->execute();
+    header('location: ../index.php');
+//
+} elseif (isset($_POST['alterarDadosUsuario'])) {
+    $editarUsuario = $pdo->prepare("UPDATE usuarios SET `nome`=:nome, `senha`=:senha, `nivel`=:nivel, `nome_completo`=:nome_completo where id=:id");
+    $editarUsuario->bindValue(':nome', $_POST['nomeUsuario'], PDO::PARAM_STR);
+    $editarUsuario->bindValue(':senha', $_POST['senhaUsuario'], PDO::PARAM_STR);
+    $editarUsuario->bindValue(':nivel', $_POST['nivelUsuario'], PDO::PARAM_STR);
+    $editarUsuario->bindValue(':nome_completo', $_POST['nomeCompletoUsuario'], PDO::PARAM_STR);
+    $editarUsuario->bindValue(':id', $_POST['idDoUsuario'], PDO::PARAM_INT);
+    $editarUsuario->execute();
+    header('location: ../usuarios.php');
+}
+
+
+
+
+

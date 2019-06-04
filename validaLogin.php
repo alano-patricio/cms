@@ -2,7 +2,7 @@
 
 include 'banco/conectaBanco.php';
 
-$buscaUsuario = $pdo->prepare("SELECT * from login where nome = :usuario and senha = :password ");
+$buscaUsuario = $pdo->prepare("SELECT * from usuarios where nome = :usuario and senha = :password ");
 $buscaUsuario->bindValue(':usuario', $_POST['usuario'], PDO::PARAM_STR);
 $buscaUsuario->bindValue(':password', $_POST['senha'], PDO::PARAM_STR);
 $buscaUsuario->execute();

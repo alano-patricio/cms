@@ -14,6 +14,15 @@
     width: 100%;
 }
 
+.apresentacaoNoticia{
+    height: 50%;
+    width: 77%;
+}
+
+.correcaoDataNoticia{
+margin-right: 3%;
+}
+
 .espacoEntreDivs{
     margin: 1%;
 }

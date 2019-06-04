@@ -40,12 +40,14 @@ $statement2->closeCursor();
                     $cont = 1;
                     foreach ($recebeNoticia as $noticiaArray):
                         ?>
-                        <div class="col-md-4 ">
+                        <div class="col-md-4 ">       
                             <div class="panel panel-default">
                                 <div class="panel-body">
-                                    <div id="minuaturaNoticia">
-                                        <img src="<?php echo $noticiaArray->imagem ?>" class="img-responsive previewNoticia">
-                                    </div>
+                                    <a href="noticia.php?idDaNoticia=<?php echo $noticiaArray->id ?>">
+                                        <div id="minuaturaNoticia">
+                                            <img src="<?php echo $noticiaArray->imagem ?>" class="img-responsive previewNoticia">
+                                        </div>
+                                    </a>
                                 </div>
 
                                 <?php if (@$_SESSION['nivel'] == 1) { ?>

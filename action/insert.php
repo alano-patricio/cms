@@ -27,5 +27,15 @@ if (isset($_POST['InserirNoticia'])) {
     $inserirNovoAviso->execute();
 
     header('location: ../index.php');
+    //
+} elseif (isset($_POST['cadastrarUsuario'])) {
+    $inserirNovoAviso = $pdo->prepare("INSERT INTO usuarios (`nome`, `senha`, `nivel`, `nome_completo`) VALUES (:nome, :senha, :nivel, :nome_completo)");
+    $inserirNovoAviso->bindValue(':nome', $_POST['nomeUsuario'], PDO::PARAM_STR);
+    $inserirNovoAviso->bindValue(':senha', $_POST['senhaUsuario'], PDO::PARAM_STR);
+    $inserirNovoAviso->bindValue(':nivel', $_POST['nivelUsuario'], PDO::PARAM_STR);
+    $inserirNovoAviso->bindValue(':nome_completo', $_POST['nomeCompletoUsuario'], PDO::PARAM_STR);
+    $inserirNovoAviso->execute();
+
+    header('location: ../usuarios.php');
 }
 ?>

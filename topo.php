@@ -31,7 +31,12 @@ session_start();
 
                     <div class="pull-right" id="centralizarBotaoLogo" >
                         <?php if (isset($_SESSION['nivel'])) { ?> 
-                            <a href="logoff.php" class="btn btn-danger">Sair</a>   
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gerenciar</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <ul><a href="empresa.php">Empresa</a></ul>
+                                <ul><a href="usuarios.php">Usuários</a></ul>
+                            </div>
+                            <a href="logoff.php" class="btn btn-danger">Sair</a>
                         <?php } else { ?>
                             <a href="login.php" class="btn btn-success">Entrar</a> 
                         <?php } ?>
