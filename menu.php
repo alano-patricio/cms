@@ -5,8 +5,15 @@
         <link href="css/estilo.css" rel="stylesheet">
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/bootstrap-select.min.css" rel="stylesheet">
-        <script src="js/jquery-3.3.1.min.js"></script>           
+        <script src="js/jquery-3.3.1.min.js"></script> 
+        <style>body{
+                background-image:url(img/background2.jpg);
+                background-attachment: fixed;
+                background-size: 100%;
+            }
+        </style>
     </head>
+
     <body><!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
         <!-- Include all compiled plugins (below), or include individual files as needed --> 
