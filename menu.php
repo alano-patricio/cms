@@ -5,9 +5,10 @@
         <link href="css/estilo.css" rel="stylesheet">
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/bootstrap-select.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
         <script src="js/jquery-3.3.1.min.js"></script> 
         <style>body{
-                background-image:url(img/background2.jpg);
+                background-image:url(img/background.jpg);
                 background-attachment: fixed;
                 background-size: 100%;
             }

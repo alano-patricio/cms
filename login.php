@@ -17,9 +17,6 @@ include 'banco/conectaBanco.php';
                     <div class = "form-group">
                         <input type = "submit" name = "validaLogin" class = "btnSubmit" value = "Login" />
                     </div>
-                    <div class = "form-group">
-                        <a href = "#" class = "ForgetPwd">Perdi minha senha?</a>
-                    </div>
                 </form>
             </div>
         </div>

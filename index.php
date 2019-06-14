@@ -4,17 +4,21 @@ include 'banco/conectaBanco.php';
 include 'topo.php';
 include 'funcoes.php';
 
+
+
 //Dados da area 02
 //OFICIAL É ESSE
-//$sql = "SELECT * FROM noticia WHERE NOW() BETWEEN data_inicial AND data_final;";
-$sql = "SELECT * FROM noticia";
+$sql = "SELECT * FROM noticia WHERE NOW() BETWEEN data_inicial AND data_final;";
+//DEBUG
+//$sql = "SELECT * FROM noticia";
 $statement = $pdo->query($sql);
 $recebeNoticia = $statement->fetchAll(PDO::FETCH_OBJ);
 $statement->closeCursor();
 
 //Dados da area 03
-//$sql2 = "SELECT * FROM aviso WHERE NOW() BETWEEN data_inicial AND data_final;";
-$sql2 = "SELECT * FROM aviso";
+$sql2 = "SELECT * FROM aviso WHERE NOW() BETWEEN data_inicial AND data_final;";
+//DEBUG
+//$sql2 = "SELECT * FROM aviso";
 $statement2 = $pdo->query($sql2);
 $recebeAviso = $statement2->fetchAll(PDO::FETCH_OBJ);
 $statement2->closeCursor();
@@ -26,7 +30,7 @@ $statement2->closeCursor();
         <div class="row">
             <div class="col-md-8">
 
-                <?php if (@$_SESSION['nivel']) {
+                <?php if (@$_SESSION['nivel'] == 1 || @$_SESSION['nivel'] == 2) {
                     ?>
                     <div class="row">
                         <div class="col-md-10">
@@ -54,7 +58,9 @@ $statement2->closeCursor();
                                     <form action="inserirNoticia.php" method="POST">
                                         <div class="panel-footer text-center"><?php echo $noticiaArray->titulo ?>
                                             <input type="hidden" name="idNoticia" value="<?php echo $noticiaArray->id ?>">
-                                            <button type="submit" class="btn-danger pull-right glyphicon glyphicon-pencil" name="editarNoticia"></button>
+                                            <?php if ($_SESSION['nivel'] == 1) { ?>
+                                                <button type="submit" class="btn-danger pull-right glyphicon glyphicon-pencil" name="editarNoticia"></button>
+                                            <?php } ?>
                                         </div>
                                     </form>
                                 <?php } else { ?>
@@ -78,7 +84,7 @@ $statement2->closeCursor();
 
             <!--Inicio da area 03-->
             <div class="col-md-4">
-                <?php if (@$_SESSION['nivel']) {
+                <?php if (@$_SESSION['nivel'] == 1 || @$_SESSION['nivel'] == 3) {
                     ?>
                     <div class="row">
                         <div class="col-md-12">
@@ -97,7 +103,9 @@ $statement2->closeCursor();
                                     <div class="panel-body">
                                         <?php echo $avisoArray->aviso; ?>
                                         <input type="hidden" name="idAviso" value="<?php echo $avisoArray->id ?>">
-                                        <button type="submit" class="btn-danger pull-right glyphicon glyphicon-pencil" name="editarAviso"></button>
+                                        <?php if (@$_SESSION['nivel'] == 1) { ?>
+                                            <button type="submit" class="btn-danger pull-right glyphicon glyphicon-pencil" name="editarAviso"></button>
+                                        <?php } ?>
                                     </div>
                                 </form>
                             </div>

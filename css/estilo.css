@@ -5,6 +5,10 @@
     margin-top: 1%;
 }
 
+#centralizarToolsLogo{
+    margin-top: 1%;
+}
+
 #centralizarBotaoLogo{
     margin-top: 7px;
 }
@@ -20,7 +24,7 @@
 }
 
 .correcaoDataNoticia{
-margin-right: 3%;
+    margin-right: 3%;
 }
 
 .espacoEntreDivs{
@@ -56,7 +60,9 @@ margin-right: 3%;
 }
 .login-form-1 h3{
     text-align: center;
-    color: #333;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 3px 3px #000;
 }
 .login-form-2{
     padding: 5%;
@@ -81,7 +87,7 @@ margin-right: 3%;
 .login-form-1 .btnSubmit{
     font-weight: 600;
     color: #fff;
-    background-color: #0062cc;
+    background-color: green;
 }
 .login-form-2 .btnSubmit{
     font-weight: 600;
