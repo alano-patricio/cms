@@ -11,7 +11,7 @@ if ($_SESSION['nivel'] == 1) {
     $statement->closeCursor();
     ?>
 
-    <form action="action/update.php" method="POST">
+    <form action="action/update.php" method="POST" enctype="multipart/form-data">
         <div class="section">
             <div class="container-fluid">
                 <div class="row">
@@ -30,6 +30,12 @@ if ($_SESSION['nivel'] == 1) {
                     <div class="col-md-offset-4 col-md-4">
                         <label>Email</label>
                         <input type="text" class="form-control" name="emailEmpresa" value="<?php echo $recebeDadosEmpresa['email'] ?>">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-offset-4 col-md-4">
+                        <label>Logo</label>
+                        <input type="file" class="btn btn-primary" name="EditaImagemEmpresa">
                     </div>
                 </div>
                 <div class="row">

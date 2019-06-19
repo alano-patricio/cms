@@ -38,10 +38,21 @@ if (isset($_POST['EditarNoticia'])) {
     header('location: ../index.php');
 //
 } elseif (isset($_POST['alteraEmpresa'])) {
-    $editarEmpresa = $pdo->prepare("UPDATE cadastro_cliente SET `nome`=:nome, `telefone`=:telefone, `email`=:email where id=0");
+    
+    if ($_FILES['EditaImagemEmpresa']['name']) {
+        $logo = "data:" . $_FILES['EditaImagemEmpresa']['type'] . ";base64," . base64_encode(file_get_contents($_FILES['EditaImagemEmpresa']['tmp_name']));
+    } else {
+        $sqlBuscarImagemEmpresa = ("SELECT logo FROM cadastro_cliente WHERE id = 0");
+        $statement = $pdo->query($sqlBuscarImagemEmpresa);
+        $recebeLogoEmpresa = $statement->fetch();
+        $logo = $recebeLogoEmpresa['logo'];
+    }
+
+    $editarEmpresa = $pdo->prepare("UPDATE cadastro_cliente SET `nome`=:nome, `telefone`=:telefone, `email`=:email, `logo`=:logo where id=0");
     $editarEmpresa->bindValue(':nome', $_POST['nomeEmpresa'], PDO::PARAM_STR);
     $editarEmpresa->bindValue(':telefone', $_POST['telefoneEmpresa'], PDO::PARAM_STR);
     $editarEmpresa->bindValue(':email', $_POST['emailEmpresa'], PDO::PARAM_STR);
+    $editarEmpresa->bindValue(':logo', $logo, PDO::PARAM_STR);
     $editarEmpresa->execute();
     header('location: ../index.php');
 //

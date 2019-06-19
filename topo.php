@@ -17,7 +17,7 @@ if ($dsn) {
                     <div class="container-fluid">
                         <div class="navbar-header">
                             <a class="navbar-brand" href="index.php">
-                                <img alt="Brand" id="logo" src="img/logo.png">
+                                <img alt="Brand" id="logo" src="<?php echo $recebeDadosEmpresa['logo']; ?>">
                             </a>
                         </div>
                         <div class="col-md-2" id="centralizarTextoLogo">
